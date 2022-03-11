@@ -33,7 +33,7 @@ var links = [
 "https://www.youtube.com/embed/WechPJGpqS8",
 "https://www.youtube.com/embed/mbbPSq63yuM",
 "https://www.youtube.com/embed/zAGVQLHvwOY",
- "https://www.youtube.com/embed/IrBKwzL3K7s&t=1s",
+ "https://www.youtube.com/embed/xK7S9mrFWL4",
  "https://www.youtube.com/embed/aX2ViKQFL_k",
  "https://www.youtube.com/embed/8XrFAXykgoc",
  "https://www.youtube.com/embed/vzMLBmG2lnc",
@@ -41,9 +41,12 @@ var links = [
 
     
 for(var i = 0; i < listafILmes.length; i++){
- divImages.innerHTML = divImages.innerHTML + "<div class='box'><h1>"+nomesfilmesSeries[i]+"</h1><img src=" + listafILmes[i] + "></div>" 
-}   
-
+    divImages.innerHTML += "<div onclick=\"setarIframe('"+links[i]+"')\" class='box'><h1>"+nomesfilmesSeries[i]+"</h1><img src=" + listafILmes[i] + "></div>" 
+} 
+function setarIframe(url){
+    ifr.src = url
+    console.log(url)
+}
 
 function listarFilmesNaTela(filme) {
       var listaFilme = document.querySelector('#listaFilmes')
@@ -74,6 +77,7 @@ function rodarMeuTrailer(numeroFilme){
 function rodarTrailer(codVideo) {
   var linkFilme = "https://www.youtube.com/embed/"+codVideo; 
   var iframeTrailer = document.querySelector('#trailer');
-  var tagFilme = "<iframe id='frameTrailer' width='500' height='300' src='" + linkFilme +"' ></iframe>";
+  var tagFilme = "<iframe id='frameTrailer' width='400' height='200' src='" + linkFilme +"' ></iframe>";
   iframeTrailer.innerHTML = tagFilme;
 }
+ 
